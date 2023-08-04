@@ -1,0 +1,14 @@
+#This playbook deploys git, wget, zip awscli into our remote hosts
+#this starts a playbook
+- hosts: tag_Name_dev
+  become: yes            #this keyword helps you to assume admin privellege. it can take true or false
+  ignore_errors: true   #this ignores errors and allow the plays to continue
+  tasks: 
+    - name: install packages on dev environment  #the package module [apt or yum]
+      apt: 
+       name: ['git', 'wget', 'zip', 'tree', 'awscli' ]
+
+
+#how to excute a playbook in ansible
+# ansible-playbook -f  playbook name
+
